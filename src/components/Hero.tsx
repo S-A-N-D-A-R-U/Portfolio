@@ -1,11 +1,52 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Nav } from './Nav';
+import { useEffect, useState } from 'react';
+import HeroImage from '../assets/portfolio.png';
+
+
+
 
 export const Hero = () => {
+
+
+  const texts = ["MERN Stack Developer", "Frontend Developer"];
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const currentText = texts[currentTextIndex];
+    const speed = isDeleting ? 50 : 100; // Typing and deleting speed
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayedText.length < currentText.length) {
+        // Typing phase
+        setDisplayedText(currentText.slice(0, displayedText.length + 1));
+      } else if (!isDeleting && displayedText.length === currentText.length) {
+        // Pause before deleting
+        setIsPaused(true);
+        setTimeout(() => {
+          setIsPaused(false);
+          setIsDeleting(true);
+        }, 1000); // Pause duration (1 second)
+      } else if (isDeleting && displayedText.length > 0) {
+        // Deleting phase
+        setDisplayedText(currentText.slice(0, displayedText.length - 1));
+      } else if (isDeleting && displayedText.length === 0) {
+        // Switch to the next text
+        setIsDeleting(false);
+        setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, isPaused, currentTextIndex, texts]);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <Nav></Nav>
+    <section id="home" className="relative min-h-screen max-w-7xl mx-auto flex items-center justify-center overflow-hidden">
+
       <div className="container  flex md:flex-col mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row gap-8 items-center">
          
@@ -21,16 +62,26 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Crafting Tomorrow's Digital Experiences Today
+              NAVEEN SANDARUWAN
             </motion.h1>
             
+            <motion.div
+            className="text-lg font-semibold lg:text-2xl h-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {displayedText}
+            <span className="blinking-cursor">|</span>
+          </motion.div>
+
             <motion.p
               className="text-xl md:text-2xl text-white/70"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Hi, I'm John Doe, a futuristic web developer delivering cutting-edge solutions
+              I build modern, responsive, and futuristic web applications.
             </motion.p>
             
             <motion.div
@@ -63,11 +114,11 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative aspect-square max-w-md mx-auto mr-20 w-5/12"
+            className="relative aspect-square max-w-md mx-auto mr-20 "
           >
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-2xl animate-pulse" />
             <img
-              src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800"
+              src={HeroImage}
               alt="Profile"
               className="relative z-10 w-full max-w-sm h-full object-cover rounded-full border-4 border-white/10 shadow-2xl"
             />

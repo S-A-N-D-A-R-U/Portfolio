@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { SectionTitle } from './SectionTitle';
 import { SkillsGrid } from './SkillsGrid';
 import { skillsData } from '../constant/const';

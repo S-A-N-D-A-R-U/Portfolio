@@ -1,7 +1,9 @@
+import { LucideProps } from 'lucide-react';
+
 export interface NavItem {
     label: string;
     href: string;
-    icon: string;
+    icon: React.ComponentType<LucideProps>;
   }
   
   export interface Project {
@@ -27,4 +29,4 @@ export interface NavItem {
     company: string;
   }
   
-  export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
+  export type SkillLevel = 'frontendDevelopment' | 'programmingLanguage' | 'backendDevelopment' | 'cloudAndTools';

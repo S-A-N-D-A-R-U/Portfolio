@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import * as Icons from 'lucide-react';
+
 
 interface SkillCardProps {
     skill: {
@@ -9,7 +9,7 @@ interface SkillCardProps {
   }
 
 const SkillCard = ({ skill }: SkillCardProps) => {
-    const Icon = Icons[skill.icon as keyof typeof Icons];
+
   
     return (
       <motion.div
@@ -18,8 +18,9 @@ const SkillCard = ({ skill }: SkillCardProps) => {
           hover:bg-cyan-500/5 transition-colors group"
       >
         <div className="flex flex-col items-center text-center gap-2">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20
+          <div className="p-2 rounded-lg 
             group-hover:from-cyan-500 group-hover:to-purple-500 transition-colors">
+              <img src={skill.icon} alt={skill.name} className="w-9 h-9 object-contain" />
           </div>
           <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">
             {skill.name}
