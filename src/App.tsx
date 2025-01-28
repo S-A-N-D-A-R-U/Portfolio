@@ -1,3 +1,4 @@
+import { About } from "./components/About";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
@@ -10,6 +11,7 @@ export default function App() {
       <div className="max-w-fitxl mx-auto">
         <Nav/>
         <Hero />
+        <About/>
         <Skills/>
         <Portfolio/>
         <Footer/>

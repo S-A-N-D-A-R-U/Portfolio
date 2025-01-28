@@ -3,6 +3,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import type { Project } from '../types';
 import { ProjectTags } from './ProjectTags ';
 
+
 interface ProjectCardProps {
   project: Project;
 }
