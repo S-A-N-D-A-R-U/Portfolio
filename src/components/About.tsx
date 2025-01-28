@@ -39,7 +39,7 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className="min-h-screen max-w-7xl mx-auto pt-56 relative">
+    <section id="about" className=" max-w-7xl mx-auto  py-20 relative">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -51,8 +51,8 @@ export const About = () => {
           <motion.div variants={itemVariants} className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
               About Me
-            </h2>
-            <p className="text-white/70 text-lg leading-relaxed">
+            </h2> 
+            <p className="text-white/70  pt-24 text-lg leading-relaxed">
               I'm a passionate web developer with a keen eye for creating elegant solutions to complex problems. 
               With expertise in both frontend and backend development, I craft seamless digital experiences 
               that combine beautiful design with robust functionality.
@@ -64,7 +64,7 @@ export const About = () => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-24">
               {skills.map((skill, index) => {
                 const Icon = skill.icon;
                 return (
