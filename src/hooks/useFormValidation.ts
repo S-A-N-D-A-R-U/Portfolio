@@ -1,4 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 interface FormValues {
   name: string;
@@ -61,22 +63,37 @@ export const useFormValidation = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    setSubmitStatus(null);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setSubmitStatus({
-        type: 'success',
-        message: 'Message sent successfully! I\'ll get back to you soon.',
-      });
-      setValues({ name: '', email: '', message: '' });
-    } catch (error) {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Failed to send message. Please try again.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+        const result = await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          {
+            from_name: values.name,
+            from_email: values.email,
+            message: values.message,
+          },
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+  
+        if (result.status === 200) {
+          setSubmitStatus({
+            type: 'success',
+            message: 'Message sent successfully! I\'ll get back to you soon.',
+          });
+          setValues({ name: '', email: '', message: '' });
+        } else {
+          throw new Error('Failed to send message');
+        }
+      } catch (error) {
+        setSubmitStatus({
+          type: 'error',
+          message: 'Failed to send message. Please try again later.',
+        });
+        console.error('EmailJS Error:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
   };
 
   return {
