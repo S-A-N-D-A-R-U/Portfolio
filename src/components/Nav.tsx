@@ -74,7 +74,7 @@ export const Nav = () => {
               animate={{ opacity: 1 }}
               className=" font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
             >
-              <img src="../src/assets/logo4.png" alt=""  className='h-14'/>
+              <img src="./logo4.png" alt=""  className='h-14'/>
             </motion.div>
 
             <div className="hidden md:flex items-center gap-8">
