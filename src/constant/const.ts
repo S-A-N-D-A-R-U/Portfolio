@@ -1,6 +1,8 @@
+import React from "../assets/react.png"
+
 export const skillsData = {
   frontendDevelopment: [
-    { name: "React", icon: "../src/assets/react.png" },
+    { name: "React", icon: React },
     { name: "Next.js", icon: "../src/assets/next.png" },
     { name: "Redux", icon: "../src/assets/redux.png" },
     { name: "TailwindCSS", icon: "../src/assets/tailwind.png" },
