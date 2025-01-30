@@ -96,7 +96,7 @@ export const About = () => {
           <motion.div variants={itemVariants} className="h-full">
           <h3 className="text-xl font-semibold ">Things I Love</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8">
-              {skills.map((skill, index) => {
+              {skills.map((skill,) => {
                 const Icon = skill.icon;
                 return (
                   <motion.div
