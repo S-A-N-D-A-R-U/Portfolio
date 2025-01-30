@@ -1,14 +1,28 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Code2, Layout, Database, Sparkles, GitBranch, Terminal } from 'lucide-react';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Code2,
+  Layout,
+  Database,
+  Sparkles,
+  GitBranch,
+  Terminal,
+  Music,
+  Camera,
+  Coffee,
+} from "lucide-react";
+
 
 const skills = [
-  { name: 'Frontend Development', icon: Layout },
-  { name: 'Backend Development', icon: Database },
-  { name: 'UI/UX Design', icon: Sparkles },
-  { name: 'Clean Code', icon: Code2 },
-  { name: 'Version Control', icon: GitBranch },
-  { name: 'DevOps', icon: Terminal },
+  { name: "Frontend Development", icon: Layout },
+  { name: "Backend Development", icon: Database },
+  { name: "UI/UX Design", icon: Sparkles },
+  { name: "Clean Code", icon: Code2 },
+  { name: "Version Control", icon: GitBranch },
+  { name: "DevOps", icon: Terminal },
+  { name: "Music", icon: Music },
+  { name: "camera", icon: Camera },
+  { name: "Cofeee", icon: Coffee }
 ];
 
 export const About = () => {
@@ -39,32 +53,49 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className=" max-w-7xl mx-auto  py-20 relative">
+    <section
+      id="about"
+      className=" max-w-7xl mx-auto min-h-screen py-20 relative"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
+          animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
           className="grid md:grid-cols-2 gap-12 items-center"
         >
           <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
-              About Me
-            </h2> 
-            <p className="text-white/70  pt-24 text-lg leading-relaxed">
-              I'm a passionate web developer with a keen eye for creating elegant solutions to complex problems. 
-              With expertise in both frontend and backend development, I craft seamless digital experiences 
-              that combine beautiful design with robust functionality.
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Get to{" "}
+                <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                  Know Me
+                </span>
+              </h2>
+              <div className="h-1 w-28 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full" />
+            </div>
+            <p className="text-2xl pt-8 font-light">
+              Hi, I'm <span className="font-bold">Naveen</span>, a web Developer
+              crafting immersive web experiences.
+            </p>
+            <p className="text-white/70  text-lg leading-relaxed">
+              With over 2 years of experience in web development, I specialize
+              in building beautiful, functional, and user-centered digital
+              experiences. I combine my passion for clean code with creative
+              design solutions to create websites that not only look great but
+              perform exceptionally.
             </p>
             <p className="text-white/70 text-lg leading-relaxed">
-              My journey in web development started 5 years ago, and since then, I've worked with various 
-              technologies and frameworks to deliver cutting-edge solutions for clients across different industries.
+              When I'm not coding, you'll find me exploring photography,
+              creating electronic music, or searching for the perfect cup of
+              coffee in the city.
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-24">
+          <motion.div variants={itemVariants} className="h-full">
+          <h3 className="text-xl font-semibold ">Things I Love</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8">
               {skills.map((skill, index) => {
                 const Icon = skill.icon;
                 return (
@@ -77,7 +108,9 @@ export const About = () => {
                       <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 group-hover:from-cyan-500 group-hover:to-purple-500 transition-all">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-sm font-medium text-white/80">{skill.name}</span>
+                      <span className="text-sm font-medium text-white/80">
+                        {skill.name}
+                      </span>
                     </div>
                   </motion.div>
                 );

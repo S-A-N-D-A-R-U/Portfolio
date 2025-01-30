@@ -44,10 +44,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         </p>
         <ProjectTags tags={project.tags} />
         <div className="flex space-x-4">
-                <a href={project.demoUrl} className="text-gray-400 hover:text-white transition-colors">
+                <a href={project.githubUrl} className="text-gray-400 hover:text-white transition-colors">
                   <Github size={20} />
                 </a>
-                <a href={project.githubUrl} className="text-gray-400 hover:text-white transition-colors">
+                <a href={project.demoUrl} className="text-gray-400 hover:text-white transition-colors">
                   <ExternalLink size={20} />
                 </a>
               </div>

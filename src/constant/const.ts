@@ -43,7 +43,7 @@ export const projects = [
       "Netflix-inspired web application with AI-powered search functionality and real-time content updates using TMDb API.",
     tags: ["React", "Firebase", "Redux Toolkit", "Gemini"],
     imageUrl:
-      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80",
+      "../src/assets/project2.jpeg",
     demoUrl: "",
     githubUrl: "https://github.com/S-A-N-D-A-R-U/netflix-clone",
   },
@@ -53,7 +53,7 @@ export const projects = [
       "A web-based Member Management System for Titan Fitness Center, streamlining operations with features for member registration, progress tracking, trainer schedules, attendance, and admin dashboard control.",
     tags: ["React", "Express.js", "Node.js", "MongoDB"],
     imageUrl:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
+      "../src/assets/project3.png",
     demoUrl: "",
     githubUrl: "https://github.com/sachishehan/Web-Based-Member-Management-System-for-Titan-Fitness-Center",
   },

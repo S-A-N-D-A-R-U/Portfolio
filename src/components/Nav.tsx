@@ -67,14 +67,14 @@ export const Nav = () => {
           isScrolled ? 'bg-transparent backdrop-blur-md shadow-lg' : 'bg-transparent'
         )}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="container mx-auto max-w-7xl h-12 px-6 md:px-0">
+          <div className="flex items-center justify-between ">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
+              className=" font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text"
             >
-              Portfolio
+              <img src="../src/assets/logo4.png" alt=""  className='h-14'/>
             </motion.div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -133,7 +133,7 @@ export const Nav = () => {
             transition={{ type: 'tween', duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden"
           >
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm h-48" onClick={() => setIsMobileMenuOpen(false)} />
             <motion.div
               className="absolute right-0 top-0 bottom-0 w-64 bg-gray-900 shadow-xl"
               initial={{ x: '100%' }}

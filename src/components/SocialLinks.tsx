@@ -10,12 +10,7 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    url: 'https://linkedin.com/in/yourusername',
-  },
-  {
-    name: 'Twitter',
-    icon: Twitter,
-    url: 'https://twitter.com/yourusername',
+    url: 'https://www.linkedin.com/in/sandaruwan-bandara-4884142b5',
   },
 ];
 
