@@ -16,7 +16,7 @@ import Git from "../assets/github.png"
 import Docker from "../assets/docker.png"
 
 import project1 from "../assets/project1.jpg"
-import project2 from "../assets/project2.jpg"
+import project2 from "../assets/project2.jpeg"
 import project3 from "../assets/project3.jpg"
 
 
